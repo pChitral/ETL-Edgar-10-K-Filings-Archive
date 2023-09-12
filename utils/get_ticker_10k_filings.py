@@ -19,12 +19,12 @@ def get_ticker_10k_filings(ticker):
         get_ticker_10k_filings("MSFT")
     """
     # Create a downloader instance with the "data" folder as the destination
-    dl = Downloader("data")
+    dl = Downloader("SUNY_Buffalo", "hello@buffalo.edu", "data")
 
     try:
         # Get all 10-K filings for the specified ticker
         # Use tqdm to add the progress bar
-        dl.get("10-K", ticker)
+        dl.get("10-K", ticker, download_details=True)
     except Exception as e:
         # Log the error message along with the ticker symbol
         logging.error(
